@@ -2460,9 +2460,11 @@ end
 
 if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
 return [[
-• ↵ مطور السورس : [Mohammed](t.me/XIIIIIIIl)
-• ↵ قناة السورس :[SourceRang](t.me/SourceRang)
- ♠
+⋆ مطـور السورس  ⇽ [‎- رمسيس | ˼Ramses˹ ♆](t.me/SPSSI) 
+⋆ مطـور السورس  ⇽ [Crazy .](t.me/Wllli3) 
+⋆ قناة السورس   ⇽  [SOURCERANG](t.me/SourceRang)
+⋆ ⋆ ⋆ ⋆ ⋆⋆ ⋆ ⋆ ⋆ ⋆⋆ ⋆ ⋆ ⋆ ⋆⋆ ⋆ ⋆ ⋆ ⋆⋆ ⋆ ⋆ ⋆ ⋆
+⠀⠀
 ]]
 end
 
