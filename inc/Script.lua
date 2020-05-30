@@ -97,43 +97,43 @@ end
 
 function lock_photos(msg)
 if not msg.Director then 
-return "⇛ هذا الامر يخص {المدير,المنشئ,المطور} فقط  \n❕"
+return "↪ هذا الامر يخص {المدير,المنشئ,المطور} فقط  \n❕"
 end
 redis:set(max.."getidstatus"..msg.chat_id_, "Simple")
-return  "⇛ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تعطيل الايدي بالصوره  \n✓" 
+return  "↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تعطيل الايدي بالصوره  \n✓" 
 end 
 function unlock_photos(msg)
 if not msg.Director then
-return "⇛ هذا الامر يخص {المدير,المنشئ,المطور} فقط  \n❕"
+return "↪ هذا الامر يخص {المدير,المنشئ,المطور} فقط  \n❕"
 end
 redis:set(max.."getidstatus"..msg.chat_id_, "Photo")
-return  "⇛ أهلا عزيزي "..msg.TheRankCmd.."\n⇛ تم تفعيل الايدي بالصوره \n✓" 
-en
+return  "↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تفعيل الايدي بالصوره \n✓" 
+end
 function cmds_on(msg)
-if not msg.Creator then return "⇛ هذا الامر يخص {المنشئ,المطور} فقط  \n❕"
+if not msg.Creator then return "↪ هذا الامر يخص {المنشئ,المطور} فقط  \n❕"
 end
 redis:set(max..'lock:kara:'..msg.chat_id_,'on')
-return "⇛ أهلا عزيزي "..msg.TheRankCmd.."\n⇛ تم تعطيل الرفع في المجموعه \n✓"
+return "↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تعطيل الرفع في المجموعه \n✓"
 end
 function cmds_off(msg)
-if not msg.Creator then return "⇛ هذا الامر يخص {المنشئ,المطور} فقط  \n❕"
+if not msg.Creator then return "↪ هذا الامر يخص {المنشئ,المطور} فقط  \n❕"
 end
 redis:set(max..'lock:kara:'..msg.chat_id_,'off')
-return "⇛ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تفعيل الرفع في المجموعه \n✓"
+return "↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ تم تفعيل الرفع في المجموعه \n✓"
 end
 
 function lockjoin(msg)
-if not msg.Admin then return "⇛ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕"
+if not msg.Admin then return "↪ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕"
 end
 redis:set(max..'lock:join:'..msg.chat_id_,true)
-return "*⇛ أهلا عزيزي *"..msg.TheRankCmd.."*\n⇛ تم قفل الدخول بالرابط \n✓*" 
+return "*↪ أهلا عزيزي *"..msg.TheRankCmd.."*\n↪ تم قفل الدخول بالرابط \n✓*" 
 
 end
 function unlockjoin(msg)
-if not msg.Admin then return "⇛ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕"
+if not msg.Admin then return "↪ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕"
 end
 redis:del(max..'lock:join:'..msg.chat_id_)
-return "*⇛ أهلا عزيزي *"..msg.TheRankCmd.."*\n⇛ تم فتح الدخول بالرابط \n✓*" 
+return "*↪ أهلا عزيزي *"..msg.TheRankCmd.."*\n↪ تم فتح الدخول بالرابط \n✓*" 
 end
 
 
@@ -206,7 +206,7 @@ end
 if msg.type ~= 'pv' and msg.GroupActive then 
 
 if MsgText[1] == 'شحن' and MsgText[2] then
-if not msg.SudoUser then return "⇛هذا الامر يخص {المطور} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور} فقط  \n❕" end
 if tonumber(MsgText[2]) > 0 and tonumber(MsgText[2]) < 1001 then
 local extime = (tonumber(MsgText[2]) * 86400)
 redis:setex(max..'ExpireDate:'..msg.chat_id_, extime, true)
@@ -221,7 +221,7 @@ return false
 end
 
 if MsgText[1] == 'الاشتراك' and MsgText[2] then 
-if not msg.SudoUser then return "⇛هذا الامر يخص {المطور} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور} فقط  \n❕" end
 if MsgText[2] == '1' then
 redis:setex(max..'ExpireDate:'..msg.chat_id_, 2592000, true)
 if not redis:get(max..'CheckExpire::'..msg.chat_id_) then 
@@ -250,7 +250,7 @@ end
 
 
 if MsgText[1] == 'الاشتراك' and not MsgText[2] and msg.Admin then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local check_time = redis:ttl(max..'ExpireDate:'..msg.chat_id_)
 if check_time < 0 then return '*مـفـتـوح *-\n✓' end
 year = math.floor(check_time / 31536000)
@@ -280,7 +280,7 @@ end
 
 
 if MsgText[1] == "المجموعه" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 GetFullChat(msg.chat_id_,function(arg,data)
 local GroupName = (redis:get(max..'group:name'..msg.chat_id_) or '')
 redis:set(max..'linkGroup'..msg.chat_id_,(data.invite_link_ or ""))
@@ -307,42 +307,42 @@ return false
 end
 
 if MsgText[1] == "منع" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return AddFilter(msg, MsgText[2]) 
 end
 
 if MsgText[1] == "الغاء منع" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return RemFilter(msg, MsgText[2]) 
 end
 
 if MsgText[1] == "قائمه المنع" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return FilterXList(msg) 
 end
 
 if MsgText[1] == "الحمايه" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return settingsall(msg) 
 end
 
 if MsgText[1] == "الاعدادات" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return settings(msg) 
 end
 
 if MsgText[1] == "الوسائط" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return media(msg) 
 end
 
 if MsgText[1] == "الادمنيه" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return GetListAdmin(msg) 
 end
 
 if MsgText[1] == "تاك" then
-if not msg.Admin then return "⇛ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 100
 },function(ta,taha)
 local t = "\n- قائمة الاعضاء \n———————\n"
@@ -358,38 +358,38 @@ end,nil)
 end
 
 if (MsgText[1] == "تاك للحلوين" and is_JoinChannel(msg)) then 
-if not msg.Admin then return "⇛ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return ownerlist(msg) .. GetListAdmin(msg) .. whitelist(msg)
 end
 
 if MsgText[1] == "تاك للكل" then 
-if not msg.Admin then return "⇛ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return ownerlist(msg) .. GetListAdmin(msg) .. whitelist(msg)
 end
 
 if MsgText[1] == "المنشى الاساسي" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return MONSEBOT(msg) 
 end
 
 if MsgText[1] == "المدراء" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return ownerlist(msg) 
 end
 
 if MsgText[1] == "المنشئ الاساسي" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return Hussainlist(msg) 
 end
 
 if MsgText[1] == "المميزين" then 
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 return whitelist(msg) 
 end
 
 
 if MsgText[1] == "صلاحياته" then 
-if not msg.Director then return "ما⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if tonumber(msg.reply_to_message_id_) ~= 0 then 
 function prom_reply(extra, result, success) 
 Get_Info(msg,msg.chat_id_,result.sender_user_id_)
@@ -403,7 +403,7 @@ Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
 end  
 end
 if MsgText[1] == "صلاحياته" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if tonumber(msg.reply_to_message_id_) == 0 then 
 local username = MsgText[2]
 function prom_username(extra, result, success) 
@@ -419,7 +419,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil
 end 
 end
 if MsgText[1] == "فحص البوت" then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. max..'')
 local Json_Info = JSON.decode(Chek_Info)
 if Json_Info.ok == true then
@@ -442,7 +442,7 @@ end
 end
 
 if MsgText[1] == "تثبيت" and msg.reply_id then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local GroupID = msg.chat_id_:gsub('-100','')
 if not msg.Director and redis:get(max..'lock_pin'..msg.chat_id_) then
 return "لا يمكنك التثبيت الامر مقفول من قبل الاداره"
@@ -455,9 +455,9 @@ disable_notification_ = 1},
 function(arg,data)
 if data.ID == "Ok" then
 redis:set(max..":MsgIDPin:"..msg.chat_id_,msg.reply_id)
-return sendMsg(msg.chat_id_,msg.id_,"⇛أهلا عزيزي "..msg.TheRankCmd.." \n⇛ تم تثبيت الرساله \n✓")
+return sendMsg(msg.chat_id_,msg.id_,"↪أهلا عزيزي "..msg.TheRankCmd.." \n↪ تم تثبيت الرساله \n✓")
 elseif data.ID == "Error" and data.code_ == 6 then
-return sendMsg(msg.chat_id_,msg.id_,'⇛ عذرا لا يمكنني التثبيت .\n⇛ لست مشرف او لا املك صلاحيه التثبيت \n ❕')    
+return sendMsg(msg.chat_id_,msg.id_,'↪ عذرا لا يمكنني التثبيت .\n↪ لست مشرف او لا املك صلاحيه التثبيت \n ❕')    
 end
 end,nil)
 end
@@ -465,7 +465,7 @@ return false
 end
 
 if MsgText[1] == "الغاء التثبيت" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 if not msg.Director and redis:get(max..'lock_pin'..msg.chat_id_) then
 return "لا يمكنك الغاء التثبيت الامر مقفول من قبل الاداره"
 else
@@ -473,11 +473,11 @@ local GroupID = msg.chat_id_:gsub('-100','')
 tdcli_function({ID="UnpinChannelMessage",channel_id_ = GroupID},
 function(arg,data) 
 if data.ID == "Ok" then
-return sendMsg(msg.chat_id_,msg.id_,"⇛أهلا عزيزي "..msg.TheRankCmd.."  \n⇛ تم الغاء تثبيت الرساله \n✓")    
+return sendMsg(msg.chat_id_,msg.id_,"↪أهلا عزيزي "..msg.TheRankCmd.."  \n↪ تم الغاء تثبيت الرساله \n✓")    
 elseif data.ID == "Error" and data.code_ == 6 then
-return sendMsg(msg.chat_id_,msg.id_,'⇛ عذرا لا يمكنني الغاء التثبيت .\n⇛ لست مشرف او لا املك صلاحيه التثبيت \n ❕')    
+return sendMsg(msg.chat_id_,msg.id_,'↪ عذرا لا يمكنني الغاء التثبيت .\n↪ لست مشرف او لا املك صلاحيه التثبيت \n ❕')    
 elseif data.ID == "Error" and data.code_ == 400 then
-return sendMsg(msg.chat_id_,msg.id_,'⇛ عذرا عزيزي '..msg.TheRankCmd..' .\n⇛ لا توجد رساله مثبته لاقوم بازالتها \n ❕')    
+return sendMsg(msg.chat_id_,msg.id_,'↪ عذرا عزيزي '..msg.TheRankCmd..' .\n↪ لا توجد رساله مثبته لاقوم بازالتها \n ❕')    
 end
 end,nil)
 end
@@ -486,7 +486,7 @@ end
 
 
 if MsgText[1] == "تقييد" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="tqeed"}) 
 end
@@ -500,7 +500,7 @@ return false
 end
 
 if MsgText[1] == "فك التقييد" or MsgText[1] == "فك تقييد" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="fktqeed"}) 
 end
@@ -515,7 +515,7 @@ end
 
 
 if MsgText[1] == "رفع مميز" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 if redis:get(max..'lock:kara:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setwhitelist"})
@@ -532,14 +532,14 @@ GetUserName(MsgText[2],action_by_username,{msg=msg,cmd="setwhitelist"})
 end
 end
 if redis:get(max..'lock:kara:'..msg.chat_id_) == 'on' then
-sendMsg(msg.chat_id_,msg.id_,"⇛ أهلا عزيزي "..msg.TheRankCmd.."\n⇛ الرفع معطل \n✓")
+sendMsg(msg.chat_id_,msg.id_,"↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ الرفع معطل \n✓")
 end
 return false
 end
 
 
 if MsgText[1] == "تنزيل مميز" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remwhitelist"})
 end
@@ -554,7 +554,7 @@ end
 
 
 if (MsgText[1] == "رفع المدير"  or MsgText[1] == "رفع مدير" ) then
-if not msg.Creator then return "⇛هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
+if not msg.Creator then return "↪هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 if redis:get(max..'lock:kara:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setowner"})
@@ -571,14 +571,14 @@ GetUserName(MsgText[2],action_by_username,{msg=msg,cmd="setowner"})
 end
 end
 if redis:get(max..'lock:kara:'..msg.chat_id_) == 'on' then
-sendMsg(msg.chat_id_,msg.id_,"⇛ أهلا عزيزي "..msg.TheRankCmd.."\n⇛ الرفع معطل \n✓")
+sendMsg(msg.chat_id_,msg.id_,"↪ أهلا عزيزي "..msg.TheRankCmd.."\n↪ الرفع معطل \n✓")
 end
 return false
 end
 
 
 if (MsgText[1] == "تنزيل المدير" or MsgText[1] == "تنزيل مدير" ) then
-if not msg.Creator then return "⇛هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
+if not msg.Creator then return "↪هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remowner"})
 end
@@ -593,7 +593,7 @@ end
 
 
 if (MsgText[1] == "رفع منشى اساسي" or MsgText[1] == "رفع منشئ اساسي") then
-if not msg.SudoUser then return "⇛هذا الامر يخص {المطور,المطور الاساسي} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور,المطور الاساسي} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setkara"}) 
 return false
@@ -609,7 +609,7 @@ end
 end
 
 if (MsgText[1] == "تنزيل منشى اساسي" or MsgText[1] == "تنزيل منشى اساسي") then
-if not msg.SudoUser then return "⇛هذا الامر يخص {المطور,المطور الاساسي} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور,المطور الاساسي} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remkara"}) 
 return false
@@ -626,7 +626,7 @@ end
 
 
 if (MsgText[1] == "رفع منشى" or MsgText[1] == "رفع منشئ") then
-if not msg.Kara then return "⇛هذا الامر يخص {المنشئ الاساسي,المطور,المطور الاساسي} فقط  \n❕" end
+if not msg.Kara then return "↪هذا الامر يخص {المنشئ الاساسي,المطور,المطور الاساسي} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setmnsha"})
 end
@@ -641,7 +641,7 @@ end
 
 
 if (MsgText[1] == "تنزيل منشى" or MsgText[1] == "تنزيل منشئ" ) then
-if not msg.Kara then return "⇛هذا الامر يخص {المطور,المنشى الاساسي فقط} فقط  \n❕" end
+if not msg.Kara then return "↪هذا الامر يخص {المطور,المنشى الاساسي فقط} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remmnsha"})
 end
@@ -656,7 +656,7 @@ end
 
 
 if MsgText[1] == "رفع ادمن" then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 if redis:get(max..'lock:kara:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="promote"})
@@ -681,7 +681,7 @@ end
 
 
 if MsgText[1] == "تنزيل ادمن" then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="demote"})
 end
@@ -697,7 +697,7 @@ end
 
 
 if MsgText[1] == "تنزيل الكل" then
-if not msg.Creator then return "⇛هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
+if not msg.Creator then return "↪هذا الامر يخص {المطور,المنشئ} فقط  \n❕" end
 
 local Admins = redis:scard(max..'admins:'..msg.chat_id_)
 redis:del(max..'admins:'..msg.chat_id_)
@@ -785,14 +785,14 @@ if MsgText[2] == "التثبيت"    then return unlock_pin(msg) end
 end
  
 if MsgText[1] == "انشاء رابط" then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if not redis:get(max..'ExCmdLink'..msg.chat_id_) then
 local LinkGp = ExportLink(msg.chat_id_)
 if LinkGp then
 LinkGp = LinkGp.result
 redis:set(max..'linkGroup'..msg.chat_id_,LinkGp)
 redis:setex(max..'ExCmdLink'..msg.chat_id_,120,true)
-return sendMsg(msg.chat_id_,msg.id_,"⇛تم انشاء رابط جديد \n-["..LinkGp.."]\n-لعرض الرابط ارسل { الرابط } \n")
+return sendMsg(msg.chat_id_,msg.id_,"↪تم انشاء رابط جديد \n-["..LinkGp.."]\n-لعرض الرابط ارسل { الرابط } \n")
 else
 return sendMsg(msg.chat_id_,msg.id_,"-لا يمكنني انشاء رابط للمجموعه .\n-لانني لست مشرف في المجموعه \n ❕")
 end
@@ -803,7 +803,7 @@ return false
 end 
 
 if MsgText[1] == "ضع رابط" then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 redis:setex(max..'linkGroup'..msg.sender_user_id_,300,true)
 return '-عزيزي قم برسال الرابط الجديد ... ♠'
 end
@@ -820,9 +820,9 @@ end
   
 
 if MsgText[1] == "الرابط خاص" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local GroupLink = redis:get(max..'linkGroup'..msg.chat_id_)
-if not GroupLink then return "⇛ اوه  لا يوجد هنا رابط\n-*لو تكرمت اكتب [ضع رابط]*" end
+if not GroupLink then return "↪ اوه  لا يوجد هنا رابط\n-*لو تكرمت اكتب [ضع رابط]*" end
 local Text = "- رابـط الـمـجـمـوعه \n- "..Flter_Markdown(redis:get(max..'group:name'..msg.chat_id_)).." :\n\n["..GroupLink.."]\n"
 local info, res = https.request(ApiToken..'/sendMessage?chat_id='..msg.sender_user_id_..'&text='..URL.escape(Text)..'&disable_web_page_preview=true&parse_mode=Markdown')
 if res == 403 then
@@ -837,7 +837,7 @@ end
 
 
 if MsgText[1] == "ضع القوانين" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 redis:setex(max..'rulse:witting'..msg.sender_user_id_,300,true)
 return '-حسنا عزيزي  \n-الان ارسل القوانين  للمجموعه '
 end
@@ -852,27 +852,27 @@ end
 
 
 if MsgText[1] == "ضع تكرار" then
-if not msg.Admin then return "⇛هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
+if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local NumLoop = tonumber(MsgText[2])
 if NumLoop < 1 or NumLoop > 50 then 
 return "↪ حدود التكرار ,  يجب ان تكون ما بين  *[2-50]*" 
 end
 redis:set(max..'flood'..msg.chat_id_,MsgText[2]) 
-return "⇛ تم وضع التكرار » { *"..MsgText[2].."* }"
+return "↪ تم وضع التكرار » { *"..MsgText[2].."* }"
 end
 
 
 
 if MsgText[1] == "مسح" then
 if not MsgText[2] and msg.reply_id then 
-if not msg.Director then return "⇛ط⇛هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 Del_msg(msg.chat_id_, msg.reply_id) 
 Del_msg(msg.chat_id_, msg.id_) 
 return false
 end
 
 if MsgText[2] and MsgText[2]:match('^%d+$') then
-if not msg.Director then return "⇛هذا الامر يخص {المطور,المنشئ,المدير} ققط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if 500 < tonumber(MsgText[2]) then return "↪ حدود المسح ,  يجب ان تكون ما بين  *[2-100]*" end
 local DelMsg = MsgText[2] + 1
 GetHistory(msg.chat_id_,DelMsg,function(arg,data)
@@ -923,7 +923,7 @@ end
 
 
 if MsgText[2] == "القوانين" then
-if not msg.Director then return "هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if not redis:get(max..'rulse:msg'..msg.chat_id_) then 
 return "-عذرا لا يوجد قوانين ليتم مسحه \n!" 
 end
@@ -933,7 +933,7 @@ end
 
 
 if MsgText[2] == "الترحيب"  then
-if not msg.Director then return "هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 if not redis:get(max..'welcome:msg'..msg.chat_id_) then 
 return "↪ اوه هنالك خطأ\n- عذرا لا يوجد ترحيب ليتم مسحه ✓" 
 end
@@ -943,7 +943,7 @@ end
 
 
 if MsgText[2] == "المنشى الاساسي" then
-if not msg.SudoUser then return "هذا الامر يخص {المطور} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور} فقط  \n❕" end
 local NumMnsha = redis:scard(max..':Hussain:'..msg.chat_id_)
 if NumMnsha ==0 then 
 return "-عذرا لا يوجد منشى اساسي \n!" 
@@ -954,7 +954,7 @@ end
 
 
 if MsgText[2] == "المنشئيين" then
-if not msg.SudoUser then return "هذا الامر يخص {المطور} فقط  \n❕" end
+if not msg.SudoUser then return "↪هذا الامر يخص {المطور} فقط  \n❕" end
 local NumMnsha = redis:scard(max..':MONSHA_BOT:'..msg.chat_id_)
 if NumMnsha ==0 then 
 return "-عذرا لا يوجد منشئيين ليتم مسحهم \n!" 
@@ -988,7 +988,7 @@ return "↪أهلا عزيزي "..msg.TheRankCmd.."   \n- تم مسح {* "..#lis
 end
 
 if MsgText[2] == 'المكتومين' then
-if not msg.Director then return "هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 local MKTOMEN = redis:scard(max..'is_silent_users:'..msg.chat_id_)
 if MKTOMEN ==0 then 
 return "↪ لا يوجد مستخدمين مكتومين في المجموعه " 
@@ -998,7 +998,7 @@ return "↪أهلا عزيزي "..msg.TheRankCmd.."   \n- تم مسح {* "..MKTO
 end
 
 if MsgText[2] == 'المميزين' then
-if not msg.Director then return "هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
+if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 local MMEZEN = redis:scard(max..'whitelist:'..msg.chat_id_)
 if MMEZEN ==0 then 
 return "*-*لا يوجد مستخدمين مميزين في المجموعه " 
@@ -1207,7 +1207,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         }
         ssssys = ali[math.random(#ali)]
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,'- 𓏬 𝐔𝐬𝐄𝐫  '..UserNameID..' .\n- 𓏬 𝐌𝐬𝐆  '..msgs..' .\n- 𓏬 𝐒𝐈𝐓𝐄  '..msg.TheRank..' .\n- 𓏬 𝐈𝐃  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' ⌾ | UserName  𓃠 '..UserNameID..' .\n ⌾ | MsG  𓃠  '..msgs..' .\n• .⌾ | Rank  𓃠  '..msg.TheRank..' .\n• ⌾ | Channel  𓃠  '..msg.sender_user_id_..' .\n  ⌾ | 𝒊𝒅  𓃠  @SourceRang .',dl_cb,nil)
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1222,7 +1222,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         end
     else
         if not redis:get("KLISH:ID") then
-        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n- 𓏬 𝐔𝐬𝐄𝐫 '..UserNameID..' .\n- 𓏬 𝐌𝐬𝐆 '..msgs..' .\n- 𓏬 𝐒𝐈𝐓𝐄 '..msg.TheRank..' .\n- 𓏬 𝐈𝐃 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+             sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' ⌾ | UserName  𓃠 '..UserNameID..' .\n ⌾ | MsG  𓃠  '..msgs..' .\n• .⌾ | Rank  𓃠  '..msg.TheRank..' .\n• ⌾ | Channel  𓃠  '..msg.sender_user_id_..' .\n  ⌾ | 𝒊𝒅  𓃠  @SourceRang .',dl_cb,nil)
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1236,7 +1236,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
         end
     end
-                  else
+else
     if redis:get("KLISH:ID") then
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1249,7 +1249,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         Text = Text:gsub('User_Points',nko)
         sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
         else
-        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n• 𝚄𝚂𝙴𝚁 𖥳 '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳 '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳 '..msg.TheRank..' .\n• 𝙸𝙳 𖥳 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n• ⌾ | UserName  𓃠 '..UserNameID..' .\n ⌾ | MsG  𓃠  '..msgs..' .\n• .⌾ | Rank  𓃠  '..msg.TheRank..' .\n• ⌾ | Channel  𓃠  '..msg.sender_user_id_..' .\n  ⌾ | 𝒊𝒅  𓃠  @SourceRang .',dl_cb,nil)
         end
 end
 
