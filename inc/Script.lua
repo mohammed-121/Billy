@@ -1207,7 +1207,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         }
         ssssys = ali[math.random(#ali)]
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,'• 𝚄𝚂𝙴𝚁 𖥳  '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳  '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳  '..msg.TheRank..' .\n• 𝙸𝙳 𖥳  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,'- 𓏬 𝐔𝐬𝐄𝐫  '..UserNameID..' .\n- 𓏬 𝐌𝐬𝐆  '..msgs..' .\n- 𓏬 𝐒𝐈𝐓𝐄  '..msg.TheRank..' .\n- 𓏬 𝐈𝐃  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1222,7 +1222,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         end
     else
         if not redis:get("KLISH:ID") then
-        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n• 𝚄𝚂𝙴𝚁 𖥳 '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳 '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳 '..msg.TheRank..' .\n• 𝙸𝙳 𖥳 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n- 𓏬 𝐔𝐬𝐄𝐫 '..UserNameID..' .\n- 𓏬 𝐌𝐬𝐆 '..msgs..' .\n- 𓏬 𝐒𝐈𝐓𝐄 '..msg.TheRank..' .\n- 𓏬 𝐈𝐃 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1236,7 +1236,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
         end
     end
-else
+                  else
     if redis:get("KLISH:ID") then
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
