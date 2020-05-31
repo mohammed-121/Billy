@@ -228,7 +228,7 @@ return false
 end
 	
 if msg.reply_to_message_id_ ~= 0 then msg.reply_id = msg.reply_to_message_id_ end
-msg.type = GetType(msg.chat_id_)
+msg.type = GetType(msg.group_id_)
 
 if msg.type == "pv" and redis:get(max..':mute_pv:'..msg.chat_id_) then
 print('\27[1;31m is_MUTE_BY_FLOOD\27[0m')
@@ -245,7 +245,7 @@ end
 if redis:get(max..'group:add'..msg.chat_id_) then 
 msg.GroupActive = true
 else
-msg.GroupActive = false
+msg.GroupActive = true
 end
 
 if msg.sender_user_id_ == SUDO_ID then 
