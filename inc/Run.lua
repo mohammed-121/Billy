@@ -2,11 +2,11 @@
 ─▄█▀█▄──▄███▄─
 ▐█░██████████▌
 ─██▒█████████─
-──▀████████▀──┊@auuuvu
+──▀████████▀──┊@XIIIIIIIl
 ─────▀██▀─────
-┊ＭᎯẊ ‿ @uop70
-تم تطوير وبرمجة السورس من قبل كارا ┊
-┊@auuuvu ‿ @uop70 
+┊RANG ‿ @XIIIIIIIl
+تم تطوير وبرمجة السورس من قبل محمد ┊
+┊@XIIIIIIIl 
 #-------------------------------------------------------------------
 ]]
 local function download(file_id, dl_cb, cmd)
@@ -106,7 +106,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close() 
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "•~اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n•~شكرا لاستخدامك سورس سير \n•~أرســل  الان /start\nلاظهار الاوامر للمطور  المجهزه بالكيبورد\n\n®️"
+local Text = "•~اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n•~شكرا لاستخدامك سورس رانج \n•~أرســل  الان /start\nلاظهار الاوامر للمطور  المجهزه بالكيبورد\n\n®️"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 os.execute([[
 rm -f ./README.md
@@ -126,11 +126,11 @@ print('\27[0;33m>>'..[[
 ─▄█▀█▄──▄███▄─
 ▐█░██████████▌
 ─██▒█████████─
-──▀████████▀──┊@auuuvu
+──▀████████▀──┊@XIIIIIIIl
 ─────▀██▀─────
-┊ＭᎯẊ ‿ @uop70
-تم تطوير وبرمجة السورس من قبل كارا ┊
-┊@auuuvu ‿ @uop70 
+┊RANG ‿ @XIIIIIIIl
+تم تطوير وبرمجة السورس من قبل محمد ┊
+┊@XIIIIIIIl ‿ 
 -------------------------------------------------------------------
 ]]..'\027[0;32m')
 create_config() 
@@ -163,11 +163,11 @@ print('\27[0;33m>>'..[[
 ─▄█▀█▄──▄███▄─
 ▐█░██████████▌
 ─██▒█████████─
-──▀████████▀──┊@auuuvu
+──▀████████▀──┊@XIIIIIIIl
 ─────▀██▀─────
-┊ＭᎯẊ ‿ @uop70
-تم تطوير وبرمجة السورس من قبل كارا ┊
-┊@auuuvu ‿ @uop70 
+┊RANG ‿ @XIIIIIIIl
+تم تطوير وبرمجة السورس من قبل محمد ┊
+┊@XIIIIIIIl ‿ 
 -------------------------------------------------------------------
                                                   
 ]]..'\027[0;32m'
@@ -335,6 +335,7 @@ if msg.content_.members_[0].id_ == our_id and redis:get(max..':WELCOME_BOT') the
 SUDO_USER = redis:hgetall(max..'username:'..SUDO_ID).username
 sendPhoto(msg.chat_id_,msg.id_,redis:get(max..':WELCOME_BOT'),[[•~مـرحبآ آنآ بوت آسـمـي ]]..redis:get(max..':NameBot:')..[[•~آختصـآصـي حمـآيه‌‏ آلمـجمـوعآت
 •~ مـن آلسـبآم وآلتوجيه وآلتكرآر وآلخ...
+•~جميع ردود سعوديه
 .®️مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[🌿
 ]])
 return false
