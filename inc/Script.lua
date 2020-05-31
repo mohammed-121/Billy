@@ -805,7 +805,7 @@ end
 if MsgText[1] == "ضع رابط" then
 if not msg.Director then return "↪هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n❕" end
 redis:setex(max..'linkGroup'..msg.sender_user_id_,300,true)
-return '-عزيزي قم برسال الرابط الجديد ... '
+return '-عزيزي قم برسال الرابط الجديد ... ♠'
 end
 
 if MsgText[1] == "الرابط" then
@@ -814,7 +814,7 @@ return "- لا يوجد رابط اكتب انشاء رابط لإنشاء را�
 end
 local GroupName = redis:get(max..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(max..'linkGroup'..msg.chat_id_)
-local gu = " ["..GroupName.."]("..GroupLink..") "
+local gu = " "..GroupLink.." "
 return sendMsgg(msg.chat_id_,msg.id_,gu)
 end
   
@@ -1207,7 +1207,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         }
         ssssys = ali[math.random(#ali)]
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' • USE  𓃠 '..UserNameID..' .\n • MSG  𓃠  '..msgs..' .\n • STA  𓃠  '..msg.TheRank..' .\n • iD  𓃠  '..msg.sender_user_id_..' .\n  • CH  𓃠  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' • USE  𓃠 '..UserNameID..' .\n • MSG  𓃠  '..msgs..' .\n • STA  𓃠  '..msg.TheRank..' .\n • iD  𓃠  '..msg.sender_user_id_..' .\n  • CH  𓃠  @SourceRang .',dl_cb,nil) 
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1222,7 +1222,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         end
     else
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' • USE  𓃠 '..UserNameID..' .\n • MSG  𓃠  '..msgs..' .\n • STA  𓃠  '..msg.TheRank..' .\n • iD  𓃠  '..msg.sender_user_id_..' .\n  • CH  𓃠  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' • USE  𓃠 '..UserNameID..' .\n • MSG  𓃠  '..msgs..' .\n • STA  𓃠  '..msg.TheRank..' .\n • iD  𓃠  '..msg.sender_user_id_..' .\n  • CH  𓃠  @SourceRang .',dl_cb,nil) 
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -2126,7 +2126,7 @@ return [[
 end
 if MsgText[1]== 'م1' then
 if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
-local text =[[1) اوامر | رفع | تنزيل
+local text =[[1) اوامر : الرفع و التنزيل
 ———————————————
 1- رفع × تنزيل » مدير
 2- رفع × تنزيل » ادمن
@@ -2160,8 +2160,7 @@ local text = [[
 ———————————————
 اوامر عرض المجموعه
 ———————————————
-
-1- الـرابـط » لعرض رابط مجموعه
+11- الـرابـط » لعرض رابط مجموعه
 2- انشاء رابط » لانشاء رابط جديد
 3- الادمنيه » لعرض قائمة الادمنيه
 4- القوانين » لعرض قوانين مجموعه
@@ -2185,7 +2184,7 @@ end
 if MsgText[1]== 'م3' then
 if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local text =[[————————————————
-« اوامر حمايه المجموعه »
+(اوامر حمايـه المجموعه)
 ————————————————     
 1- قفل + فتح [الكل]
 2- قفل + فتح [التاك]
@@ -2223,7 +2222,7 @@ if MsgText[1]== 'م4' then
 if not msg.Admin then return "↪هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n❕" end
 local text = [[
 ———————————————
-[اوامر الخدمه .]
+[اوامر الخدمه]
 ———————————————
 1- ايـــدي » لعرض ايديك بصوره
 2- ايديـي » لعرض ايديك و معرفك
@@ -2240,7 +2239,6 @@ local text = [[
 13- كشف البوتات » لعرض عدد بوتات في مجموعه
 14- طرد البوتات » لطرد بوتات مجموعة
 15- طرد المحذوفين » لطرد حسابات محذوفه
-
 ———————————————
 
 اذا تبي شي كلمني هنا>↭ ]]..SUDO_USER
@@ -2252,7 +2250,6 @@ if not msg.Admin then return "↪هذا الامر يخص {الادمن,المد
 local text =[[———————————————
 اوامر التسليه 
 ———————————————
-
 1- رفع » ملك
 2- رفع » زوجتي
 3- رفع » خدام
@@ -2280,7 +2277,6 @@ local text =[[———————————————
 4- تفعيل ∆ تعطيل » الترحيب
 5- تفعيل ∆ تعطيل » الايدي
 6- تفعيل ∆ تعطيل » الايدي بالصوره
-
 ———————————————
 
 اذا تبي شي كلمني هنا>↭ ]]..SUDO_USER
@@ -2308,7 +2304,7 @@ sendMsg(msg.chat_id_,msg.id_,text)
 return false
 end
 if MsgText[1]== "م المطور" then
-if not msg.SudoBase then return "-للمطور الاساسي فقط   ♠" end
+if not msg.SudoBase then return "-للمطور الاساسي فقط   " end
 local text = [[
  ———————————————
     [اوامـر المطـور]
@@ -2325,9 +2321,6 @@ local text = [[
 5- تنظيف المجموعات » لطرد البوت من مجموعات وهميه
 6- تنظيف المشتركين » لحظر مشتركين الوهيمين
 ———————————————
-7- تحديث » لتحديث ملفات السورس
-8- تحديث السورس » لتحديث السورس !! 
-———————————————
 اذا تبي شي كلمني هنا>↭ ]]..SUDO_USER
 sendMsg(msg.chat_id_,msg.id_,text)
 return false
@@ -2339,7 +2332,6 @@ local text = [[
  ———————————————
      [جميع اوامر الرد ]
 ———————————————
-
 1- الردود » لعرض ردود المحموعه
 2- اضف رد » لضافة رد جديد للمجموعه
 3- مسح رد » لمسح رد من مجموعه
@@ -2348,7 +2340,6 @@ local text = [[
 6- اضف رد عام » لضافة رد لجميع مجموعات
 7- مسح رد عام » لمسح رد من جميع مجموعات
 8- مسح الردود العامه » لمسح جميع ردود مجموعات
-
 ———————————————
 اذا تبي شي كلمني هنا>↭ ]]..SUDO_USER
 sendMsg(msg.chat_id_,msg.id_,text)
@@ -2380,7 +2371,7 @@ if msg.Admin then return "↪تحبون المذله .  \n" end
 kick_user(msg.sender_user_id_,msg.chat_id_,function(arg,data)
 if data.ID == "Ok" then
 StatusLeft(msg.chat_id_,msg.sender_user_id_)
-send_msg(msg.sender_user_id_,"-اهلا يا ذليل الزبده حظرتك من المجموعه على طلبك \n-اذا كان هذا بالخطأ او اردت الرجوع للمجموعه \n\n-فهذا رابط المجموعه \n ♠│"..Flter_Markdown(redis:get(max..'group:name'..msg.chat_id_)).." :\n\n["..redis:get(max..'linkGroup'..msg.chat_id_).."]\n")
+send_msg(msg.sender_user_id_,"-اهلا يا ذليل الزبده حظرتك من المجموعه على طلبك \n-اذا كان هذا بالخطأ او اردت الرجوع للمجموعه \n\n-فهذا رابط المجموعه \n │"..Flter_Markdown(redis:get(max..'group:name'..msg.chat_id_)).." :\n\n["..redis:get(max..'linkGroup'..msg.chat_id_).."]\n")
 sendMsg(msg.chat_id_,msg.id_,"- لقد تم طردك بنجاح , ارسلت لك رابط المجموعه في الخاص اذا وصلت لك تستطيع الرجوع متى شئت ")
 else
 sendMsg(msg.chat_id_,msg.id_,"- لا استطيع طردك لانك مشرف في المجموعه  ")
@@ -2413,7 +2404,7 @@ if MsgText[1] == 'مسح' and MsgText[2] == 'تعديلاتك'  then
 local rfih = (redis:get(max..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 if rfih == 0 then  return "↪عذرا لا يوجد تعديلات لك في البوت" end
 redis:del(max..':edited:'..msg.chat_id_..':'..msg.sender_user_id_)
-return "↪تم مسح {* "..rfih.." *} من تعديلاتك  \n✓"
+return "↪تم مسح {* "..rfih.." *} من تعديلاتك  ♠\n✓"
 end
 
 if MsgText[1] == "تفعيل الاشتراك الاجباري" or MsgText[1] == "تفعيل الاشتراك الاجباري " then
@@ -2665,16 +2656,11 @@ return send_key(msg.sender_user_id_,text,keyboard,nil,msg.id_)
 else
 redis:sadd(max..'users',msg.sender_user_id_)
 if redis:get(max..'lock_service') then 
-text = [[-اهلاً انا بـوت اسـمي []]..redis:get(max..':NameBot:')..[[] 
--لحماية المجموعات من البوتات
-والتوجيه‌‏ والتكرار وغيره...
-ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
- ⚖│مـعـرف الـمـطـــور ↫ ]]..SUDO_USER..[[
-]]
-else
-text = [[- اهلاً انابـوت اسمي []]..redis:get(max..':NameBot:')..[[] 
--لحماية المجموعات من البوتات
-والتوجيه‌‏ والتكرار وغيره...
+text = - أهلاًًً انا بوت إسمي ...redis:get(max..':NameBot:')..
+- إختصاصي حماية المجموعات وطرد البوتات الايرانية وقفل التوجيه والدردشه والتكرار .. الخ  .
+- جميع ردود البوت سعودية .
+- إرفع البوت مشرف بالقروب ثم اكتب كلمة تفعيل .
+⚖│مـعـرف الـمـطـــور ↫ 
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
  ⚖│مـعـرف الـمـطـــور ↫ ]]..SUDO_USER..[[
 ]]
@@ -2718,7 +2704,7 @@ USERNAME = FlterName(data.first_name_..' '..(data.last_name_ or ""),20)
 end
 USERCAR = utf8.len(USERNAME)
 
-SendMention(msg.sender_user_id_,data.id_,msg.id_,"-تم ارسال الرساله  .\n- الى : "..USERNAME.."  ",39,USERCAR) 
+SendMention(msg.sender_user_id_,data.id_,msg.id_,"-تم ارسال الرساله  .\n- الى : "..USERNAME.."  ♠",39,USERCAR) 
 return false 
 end,nil)
 end  
@@ -2731,7 +2717,7 @@ sendMsg(msg.chat_id_,msg.id_,"-عذراً يا عزيزي لا يمكنك ارس
 return false
 end
 redis:setex(max.."USER_MSG_TWASEL"..msg.date_,43200,msg.id_)
-sendMsg(msg.chat_id_,msg.id_,"-تم ارسال رسـالتك الى المطور\n-سـأرد عليك في اقرب وقت\n• معرف المطور "..SUDO_USER)
+sendMsg(msg.chat_id_,msg.id_,"-تم ارسال رسـالتك الى المطور\n-سـأرد عليك في اقرب وقت\n• ♠معرف المطور "..SUDO_USER)
 tdcli_function({ID='GetChat',chat_id_ = SUDO_ID},function(arg,data)
 fwdMsg(SUDO_ID,msg.chat_id_,msg.id_)
 end,nil)
@@ -2746,7 +2732,7 @@ local klma = redis:get(max..'replay1'..msg.chat_id_..msg.sender_user_id_)
 if msg.text then 
 redis:hset(max..'replay:'..msg.chat_id_,klma,Flter_Markdown(msg.text))
 redis:del(max..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'(['..klma..'])\n  ✓ تم اضافت الرد   \n-')
+return sendMsg(msg.chat_id_,msg.id_,'(['..klma..'])\n  ✓ تم اضافت الرد  ♠ \n-')
 elseif msg.photo then 
 redis:hset(max..'replay_photo:group:'..msg.chat_id_,klma,photo_id)
 redis:del(max..'addrd:'..msg.chat_id_..msg.sender_user_id_)
@@ -2781,7 +2767,7 @@ local klma = redis:get(max..'allreplay:'..msg.chat_id_..msg.sender_user_id_)
 if msg.text then
 redis:hset(max..'replay:all',klma,Flter_Markdown(msg.text))
 redis:del(max..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'(['..klma..'])\n  ✓ تم اضافت الرد لكل المجموعات   ')
+return sendMsg(msg.chat_id_,msg.id_,'(['..klma..'])\n  ✓ تم اضافت الرد لكل المجموعات  ♠ ')
 elseif msg.photo then 
 redis:hset(max..'replay_photo:group:',klma,photo_id)
 redis:del(max..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
@@ -2876,7 +2862,7 @@ redis:hdel(max..'replay_audio:group:',msg.text)
 redis:hdel(max..'replay_animation:group:',msg.text)
 redis:hdel(max..'replay_sticker:group:',msg.text)
 redis:hdel(max..'replay_video:group:',msg.text)
-return sendMsg(msg.chat_id_,msg.id_,'('..Flter_Markdown(msg.text)..')\n  ✓ تم مسح الرد  ')
+return sendMsg(msg.chat_id_,msg.id_,'('..Flter_Markdown(msg.text)..')\n  ✓ تم مسح الرد  ♠')
 end 
 end 
 
@@ -2884,7 +2870,7 @@ end
 if redis:get(max..'text_sudo:witting'..msg.sender_user_id_) then -- استقبال كليشه المطور
 redis:del(max..'text_sudo:witting'..msg.sender_user_id_) 
 redis:set(max..':TEXT_SUDO',Flter_Markdown(msg.text))
-return sendMsg(msg.chat_id_,msg.id_, "•➰** تم وضع الكليشه بنجاح كلاتي  \n\n*{*  "..Flter_Markdown(msg.text).."  *}*\n✓")
+return sendMsg(msg.chat_id_,msg.id_, "•➰** تم وضع الكليشه بنجاح كلاتي  ♠\n\n*{*  "..Flter_Markdown(msg.text).."  *}*\n✓")
 end
 if redis:get(max..'welcom:witting'..msg.sender_user_id_) then -- استقبال كليشه الترحيب
 redis:del(max..'welcom:witting'..msg.sender_user_id_) 
@@ -3005,7 +2991,7 @@ sendPhoto(msg.chat_id_,msg.id_,redis:get(max..':WELCOME_BOT'),[[-اهلا انآ
 -لحمايةالمجموعات من التكرار والتوجيه وغيره .
 
 
-•  مـعـرف الـمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
+• مـعـرف الـمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
 ]])
 return false
 end 
@@ -3032,7 +3018,7 @@ end
 
 if msg.text and msg.type == "channel" then
 if msg.text:match("^"..Bot_Name.." غادر$") and (msg.SudoBase or msg.SudoBase or msg.Director) then
-sendMsg(msg.chat_id_,msg.id_,'-من زينكم يا هطوف . ')
+sendMsg(msg.chat_id_,msg.id_,'-من زينكم يا هطوف . ♠')
 rem_data_group(msg.chat_id_)
 StatusLeft(msg.chat_id_,our_id)
 return false
@@ -3104,7 +3090,7 @@ redis:hdel(max..'replay_audio:group:'..msg.chat_id_,msg.text)
 redis:hdel(max..'replay_animation:group:'..msg.chat_id_,msg.text)
 redis:hdel(max..'replay_sticker:group:'..msg.chat_id_,msg.text)
 redis:hdel(max..'replay_video:group:'..msg.chat_id_,msg.text)
-return sendMsg(msg.chat_id_,msg.id_,'(['..msg.text..'])\n  ✓ تم مسح الرد   ')
+return sendMsg(msg.chat_id_,msg.id_,'(['..msg.text..'])\n  ✓ تم مسح الرد  ♠ ')
 end 
 end
 
@@ -3926,7 +3912,7 @@ else
 return sendMsg(msg.chat_id_,msg.id_,"تقلع .") 
 end
 elseif Text== "تف" then return sendMsg(msg.chat_id_,msg.id_,"وجعع .")
-elseif Text== "مبرمج السورس" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
+elseif Text== "محمد" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
 elseif Text== "احبنك" then return sendMsg(msg.chat_id_,msg.id_,"اعشقنك .")
 elseif Text== "اعشقك"  then return sendMsg(msg.chat_id_,msg.id_,"اموت فيك .")
 elseif Text== "وينك"  then return sendMsg(msg.chat_id_,msg.id_,"بقلبك .")
@@ -4363,6 +4349,440 @@ max = {
 "^(م7)$",
  
  
+local function storm_send(chat_id, reply_to_message_id, text) local TextParseMode = {ID = "TextParseModeMarkdown"}
+tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
+end
+--###########################
+function sendMention(msg,chat,text,user)   
+entities = {}   
+entities[0] = {ID='MessageEntityBold', offset_=0, length_=0}   
+if text and text:match('{') and text:match('}')  then   
+local x = utf8.len(text:match('(.*){'))   
+local offset = x + 1  
+local y = utf8.len(text:match('{(.*)}'))   
+local length = y + 1  
+text = text:gsub('{','')   
+text = text:gsub('}','')   
+table.insert(entities,{ID="MessageEntityMentionName", offset_=offset, length_=length, user_id_=user})   
+end   
+return tdcli_function ({ID="SendMessage", chat_id_=chat, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_=entities}}, dl_cb, nil)   
+end
+local function getMessag(chat_id, message_id,cb) 
+tdcli_function ({ ID = "GetMessage", chat_id_ = chat_id, message_id_ = message_id }, cb, nil) 
+end 
+--###########################
+function CatchNameSet(Name) 
+ChekName = utf8.sub(Name,0,35) 
+Name = ChekName 
+if utf8.len(Name) > 30 then
+t=  Name..' ...' 
+else
+t = Name
+end
+return t
+end
+--###########################
+function rem_admin(msg,chat,user) --// نتيجه تنزيل الادمن
+if (msg.can_be_deleted_ == false) then   
+storm_send(chat,msg.id_,"*📮¦ انا لست ادمن هنا يرجى ترقيتي وتفعيل جميع الصلاحيات \n👨🏻‍✈️*")   
+return false end      
+tdcli_function ({ID = "GetChatMember",chat_id_ = chat,user_id_ = user},function(arg,da) 
+tdcli_function ({ID = "GetUser",user_id_ = user},function(arg,data) 
+if data.message_ == "User not found" then
+storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📬¦ لا استطيع استخراج معلوماته ✨ *\n', 1, 'md')
+return false  end
+if tonumber(user) == tonumber(omar) then  
+storm_send(chat,msg.id_,"*📮¦ انا بوت لا تستطيع تنزيلي \n👨🏻‍✈️*")   
+return false  end 
+if (da and da.status_.ID == "ChatMemberStatusCreator") then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هاذا الشخص هوا منشئ المجموعه \n👨🏻‍✈️*")   
+return false  end 
+if (da and da.status_.ID == "ChatMemberStatusMember") then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هاذا الشخص ليس ادمن في المجموعه \n👨🏻‍✈️*")   
+return false  end 
+local SET_ADMIN = https.request('https://api.telegram.org/bot'..Token..'/promoteChatMember?chat_id='.. chat ..'&user_id='.. user..'&can_pin_messages=false&can_restrict_members=false&can_invite_users=false&can_delete_messages=false&can_change_info=false')
+local JSON_ADMIN = JSON.decode(SET_ADMIN)
+if (JSON_ADMIN.description == "Bad Request: not enough rights" and JSON_ADMIN.error_code == 400) then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هناك خطأ يرجي تفعيل صلاحية { اضافة مشرفين جدد } حتى استطيع تنزيله \n👨🏻‍✈️*")   
+return false  end 
+if (JSON_ADMIN.description == "Bad Request: CHAT_ADMIN_REQUIRED" and JSON_ADMIN.error_code == 400) then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هناك خطأ المستخدم انا لم اقم بترقيته مشرف في المجموعه لا استطيع تنزيله \n👨🏻‍✈️*")   
+return false  end 
+if (JSON_ADMIN.result == true) then
+sendMention(msg,chat,'📮¦ العضو » {'..CatchNameSet(data.first_name_)..'}'..'\n📬¦ تم تنزيله من المشرفين في المجموعه \n',user)   
+end end,nil) end,nil)   
+end
+--###########################
+function add_admin(msg,chat,user) --// نتيجه رفع ادمن
+if redis:get(omar.."Add:Pin"..msg.chat_id_) then
+pin_msg = 'true'
+pin = 'ꪜ'
+else
+pin_msg = 'false'
+pin = '✘'
+end
+if redis:get(omar.."Add:Kick"..msg.chat_id_) then
+Add_Kick = 'true'
+kick = 'ꪜ'
+else
+Add_Kick = 'false'
+kick = '✘'
+end
+if redis:get(omar.."Add:Info"..msg.chat_id_) then
+Add_Info = 'true'
+info = 'ꪜ'
+else
+Add_Info = 'false'
+info = '✘'
+end
+if redis:get(omar.."Add:Set:Admin"..msg.chat_id_) then
+Add_SetAdmin = 'true'
+adde = 'ꪜ'
+else
+Add_SetAdmin = 'false'
+adde = '✘'
+end
+if redis:get(omar.."Add:Del"..msg.chat_id_) then
+Add_Del = 'true'
+del = 'ꪜ'
+else
+Add_Del = 'false'
+del = '✘'
+end
+if (msg.can_be_deleted_ == false) then   
+storm_send(chat,msg.id_,"*📮¦ انا لست ادمن هنا يرجى ترقيتي وتفعيل جميع الصلاحيات \n👨🏻‍✈️*")   
+return false end      
+tdcli_function ({ID = "GetChatMember",chat_id_ = chat,user_id_ = user},function(arg,da) 
+tdcli_function ({ID = "GetUser",user_id_ = user},function(arg,data) 
+if data.message_ == "User not found" then
+storm_sendMsg(msg.chat_id_, msg.id_, 1,'*📬¦ لا استطيع استخراج معلوماته ✨ *\n', 1, 'md')
+return false  end
+if tonumber(user) == tonumber(bot_id) then  
+storm_send(chat,msg.id_,"*📮¦ انا بوت وصلاحيتي هي الادمن \n👨🏻‍✈️*")   
+return false  end 
+if (da and da.status_.ID == "ChatMemberStatusCreator") then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هاذا الشخص هوا منشئ المجموعه \n👨🏻‍✈️*")   
+return false  end 
+if (da and da.status_.ID == "ChatMemberStatusEditor") then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هاذا الشخص هوا ادمن في المجموعه \n👨🏻‍✈️*")   
+return false  end 
+local SET_ADMIN = https.request('https://api.telegram.org/bot'..Token..'/promoteChatMember?chat_id='.. chat ..'&user_id='.. user..'&can_pin_messages='..pin_msg..'&can_restrict_members='..Add_Kick..'&can_invite_users=true&can_delete_messages='..Add_Del..'&can_change_info='..Add_Info..'&can_promote_members='..Add_SetAdmin..'')
+local JSON_ADMIN = JSON.decode(SET_ADMIN)
+if (JSON_ADMIN.description == "Bad Request: not enough rights" and JSON_ADMIN.error_code == 400) then
+storm_send(chat,msg.id_,"*📮¦ عذرآ هناك خطأ يرجي تفعيل صلاحية { اضافة مشرفين جدد } حتى استطيع ترقيته \n👨🏻‍✈️*")   
+return false  end 
+if (JSON_ADMIN.result == true) then
+taha = '\n💢¦ واصبحت صلاحياته هي \nٴ━━━━━━━━━━\n📝¦ تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n📨¦ حذف الرسائل ↞ ❴ '..del..' ❵'..'\n🚷¦ حظر المستخدمين ↞ ❴ '..kick..' ❵'..'\n♻¦ دعوة مستخدمين ↞ ❴ ꪜ ❵'..'\n🔘¦ تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n🚸¦ اضافة مشرفين جدد ↞ ❴ '..adde..' ❵'
+sendMention(msg,chat,'📮¦ العضو » {'..CatchNameSet(data.first_name_)..'}'..'\n📬¦ تم ترقيتة مشرف في المجموعه \n'..taha,user)   
+end end,nil) end,nil)   
+end
+
+--###########################
+function Get_Info(msg,chat,user) --// ارسال نتيجة الصلاحيه
+local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "creator" then
+storm_send(msg.chat_id_,msg.id_,'*\n🚸¦ صلاحياته منشئ الكروب 🍃*')   
+return false  end 
+if Json_Info.result.status == "member" then
+storm_send(msg.chat_id_,msg.id_,'*\n🚸¦ مجرد عضو هنا 🍃*')   
+return false  end 
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ'
+else
+info = '✘'
+end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ'
+else
+delete = '✘'
+end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ'
+else
+invite = '✘'
+end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ'
+else
+pin = '✘'
+end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ'
+else
+restrict = '✘'
+end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ'
+else
+promote = '✘'
+end
+storm_send(chat,msg.id_,'\n📌¦ الرتبة : مشرف 🍃 '..'\n💢¦ والصلاحيات هي ↓ \nٴ━━━━━━━━━━'..'\n📝¦ تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n📨¦ حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n🚷¦ حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n♻¦ دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n🔘¦ تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n🚸¦ اضافة مشرفين جدد ↞ ❴ '..promote..' ❵')   
+end
+end
+end
+--€€€€€€€€€€€€€€€€€€€€€
+local function games(msg,MsgText)
+if msg.type ~= "pv" and msg.GroupActive then
+if MsgText[1] == "رفع مشرف" then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+add_admin(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end 
+if MsgText[1] == "تنزيل مشرف" then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+rem_admin(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end 
+if MsgText[1] == "رفع مشرف" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+local username = MsgText[2]
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ المعرف غير صحيح \n👨🏻‍✈️*")   
+return false  end   
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ هاذا معرف قناة \n👨🏻‍✈️*")   
+return false end      
+add_admin(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+if MsgText[1] == "تنزيل مشرف" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+local username = MsgText[2]
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ المعرف غير صحيح \n👨🏻‍✈️*")   
+return false  end   
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ هاذا معرف قناة \n👨🏻‍✈️*")   
+return false end      
+rem_admin(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+
+if MsgText[1] == "رفع مشرف" and MsgText[2] and MsgText[2]:match('^%d+$') then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+add_admin(msg,msg.chat_id_,MsgText[2])
+end
+end  
+if MsgText[1] == "تنزيل مشرف" and MsgText[2] and MsgText[2]:match('^%d+$') then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+rem_admin(msg,msg.chat_id_,MsgText[2])
+end  
+end
+----------------------------------------
+if MsgText[1] == "صلاحياته" then 
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+Get_Info(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end
+if MsgText[1] == "صلاحياتي" then 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
+end  
+end
+if MsgText[1] == "صلاحياته" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
+if tonumber(msg.reply_to_message_id_) == 0 then 
+local username = MsgText[2]
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ المعرف غير صحيح \n👨🏻‍✈️*")   
+return false  end   
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ هاذا معرف قناة \n👨🏻‍✈️*")   
+return false end      
+Get_Info(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+end
+if MsgText[1] == 'فحص البوت' then
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. omar..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ' else info = '✘' end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ' else delete = '✘' end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ' else invite = '✘' end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ' else pin = '✘' end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ' else restrict = '✘' end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ' else promote = '✘' end 
+storm_send(msg.chat_id_,msg.id_,'\n📌¦ اهلا عزيزي البوت هنا ادمن'..'\n💢¦ وصلاحياته هي ↓ \nٴ━━━━━━━━━━'..'\n📝¦ تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n📨¦ حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n🚷¦ حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n♻¦ دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n🔘¦ تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n🚸¦ اضافة مشرفين جدد ↞ ❴ '..promote..' ❵')   
+end
+end
+end
+----------------------------------------
+if MsgText[1] == "تفعيل" and MsgText[2] == "صلاحيه التثبيت" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:set(omar.."Add:Pin"..msg.chat_id_,true)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تفعيل صلاحيه التثبيت')
+end
+if MsgText[1] == "تعطيل" and MsgText[2] == "صلاحيه التثبيت" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:del(omar.."Add:Pin"..msg.chat_id_)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تعطيل صلاحيه التثبيت')
+end
+if MsgText[1] == "تفعيل" and MsgText[2] == "صلاحيه الحذف" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:set(omar.."Add:Del"..msg.chat_id_,true)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تفعيل صلاحيه حذف الرسائل')
+end
+if MsgText[1] == "تفعيل" and MsgText[2] == "صلاحيه الحذف" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:del(omar.."Add:Del"..msg.chat_id_)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تعطيل صلاحية حذف الرسائل')
+end
+if MsgText[1] == "تعطيل" and MsgText[2] == "صلاحيه الرفع" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:set(omar.."Add:Set:Admin"..msg.chat_id_,true)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تفعيل صلاحيه اضافه مشرفين جدد')
+end
+if MsgText[1] == "تعطيل" and MsgText[2] == "صلاحيه الرفع" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:del(omar.."Add:Set:Admin"..msg.chat_id_)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تعطيل صلاحيه اضافة مشرفين جدد')
+end
+if MsgText[1] == "تفعيل" and MsgText[2] == "صلاحيه المعلومات" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:set(omar.."Add:Info"..msg.chat_id_,true)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تفعيل صلاحيه تغير معلومات المجموعه')
+end
+if MsgText[1] == "تعطيل" and MsgText[2] == "صلاحيه المعلومات" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:del(omar.."Add:Info"..msg.chat_id_)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تعطيل صلاحيه تغير معلومات المجموعه')
+end
+if MsgText[1] == "تفعيل" and MsgText[2] == "صلاحيه الطرد" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:set(omar.."Add:Kick"..msg.chat_id_,true)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تفعيل صلاحيه طرد المستخدمين')
+end
+if MsgText[1] == "تعطيل" and MsgText[2] == "صلاحيه الطرد" then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+redis:del(omar.."Add:Kick"..msg.chat_id_)   
+storm_send(msg.chat_id_,msg.id_,'🔰| تم تعطيل صلاحيه طرد المستخدمين')
+end
+
+if MsgText[1] == 'اوامر المشرفين' then 
+if not msg.Creator then
+storm_send(msg.chat_id_,msg.id_,"*📮¦ عذرآ لا تستطيع استخدام هاذا الامر \n👨🏻‍✈️*")   
+return false  end 
+textt = [[
+📌¦ اهلا بك في اوامر المشرفين
+ٴ━━━━━━━━━━
+💢¦ اوامر خاصه بالمنشئ ↓
+ٴ━━━━━━━━━━
+⚡¦ فحص البوت
+⭐¦ رفع مشرف ❴ رد ؛ معرف ؛ ايدي ❵
+🔖¦ تنزيل مشرف ❴ رد ؛ معرف ؛ ايدي ❵
+ٴ━━━━━━━━━━
+🙋🏻‍♂¦ اوامر تفعيل او التعطيل ↓
+ٴ━━━━━━━━━━
+🔰¦تفعيل/تعطيل صلاحيه التثبيت
+🔰¦تفعيل/تعطيل صلاحيه المعلومات
+🔰¦تفعيل/تعطيل صلاحيه الحذف
+🔰¦تفعيل/تعطيل صلاحيه الطرد
+🔰¦تفعيل/تعطيل صلاحيه الرفع
+ٴ━━━━━━━━━━
+🙋🏻‍♂¦ اوامر متاحه للجميع ↓
+ٴ━━━━━━━━━━
+🔖¦ صلاحياتي
+🔰¦ صلاحياته ❴ رد ؛ معرف ❵
+ٴ━━━━━━━━━━
+🎭┊مـعـرف الـمـطـور : ]]..SUDO_USER..[[
+]]
+storm_send(msg.chat_id_,msg.id_,textt)   
+end
+
+
+end
+end
+
+
+return {
+omar = {
+'^(صلاحياته)$',
+'^(تعطيل) (.+)$',
+'^(تفعيل) (.+)$',
+'^(اوامر المشرفين)$',
+'^(صلاحياتي)$',
+'^(فحص البوت)$',
+"^(صلاحياته) (@[%a%d_]+)$",
+'^(رفع مشرف)$',
+'^(رفع مشرف) (@[%a%d_]+)$',
+'^(رفع مشرف) (%d+)$',
+'^(تنزيل مشرف)$',
+'^(تنزيل مشرف) (@[%a%d_]+)$',
+'^(تنزيل مشرف) (%d+)$', 
+
+ },
+ iomar = games,
+
+
+ }
+
+
+
+
  },
  imax = imax,
  dmax = dmax,
