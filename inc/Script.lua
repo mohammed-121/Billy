@@ -3992,7 +3992,9 @@ else
 return sendMsg(msg.chat_id_,msg.id_,"تقلع .") 
 end
 elseif Text== "تف" then return sendMsg(msg.chat_id_,msg.id_,"وجعع .")
-elseif Text== "محمد" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
+elseif Text== "مطور السورس" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
+elseif Text== "صانع بوت" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
+elseif Text== "صاحب سورس" then return sendMsg(msg.chat_id_,msg.id_,"[رمـسيـس .](t.me/SPllS")
 elseif Text== "احبنك" then return sendMsg(msg.chat_id_,msg.id_,"اعشقنك .")
 elseif Text== "اعشقك"  then return sendMsg(msg.chat_id_,msg.id_,"اموت فيك .")
 elseif Text== "وينك"  then return sendMsg(msg.chat_id_,msg.id_,"بقلبك .")
