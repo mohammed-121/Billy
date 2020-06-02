@@ -814,7 +814,7 @@ return "- لا يوجد رابط اكتب انشاء رابط لإنشاء را�
 end
 local GroupName = redis:get(max..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(max..'linkGroup'..msg.chat_id_)
-local gu = " 💠┇*رابط المجموعه* 🛒\n🌡┇"..GroupName.."  "..GroupLink.." "
+local gu = " ♦️┇*رابط المجموعه* \n🩸┇"..GroupName.."  \n "..GroupLink.." "
 return sendMsgg(msg.chat_id_,msg.id_,gu)
 end
   
