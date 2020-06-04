@@ -1200,14 +1200,14 @@ end
 local rfih = (redis:get(max..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 local NumGha = (redis:get(max..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 local Namei = FlterName(data.first_name_..' '..(data.last_name_ or ""),20)
-GetPhotoUser(msg.sender_user_id_,function(arg, data)
+GetPhotoUser(msg.sender_user_id_,function(arg, data) 
 if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
     if data.photos_[0] then 
         ali = {'شهل صورة😍😌','لا قيمه للقمر امام وجهك🌚🥀','خليني احبك🙈❤️','ببكن خاص 🌚😹','نكبل 🙈♥','منور اليوم 😻','فديت الحلو🌚😹','شهل عسل ،₍🍯😻⁾ ','كلي يا حلو منين الله جابك🙈❤️','يهلا بلعافيه😍','مارتاحلك😐','تحبني؟🙈',
         }
         ssssys = ali[math.random(#ali)]
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,'• 𝚄𝚂𝙴𝚁 𖥳  '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳  '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳  '..msg.TheRank..' .\n• 𝙸𝙳 𖥳  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' 𝚄𝚜𝚎𝚛 ✯   '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯   '..msgs..' .\n 𝚂𝚝𝚊 ✯   '..msg.TheRank..' .\n 𝙸D ✯   '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1222,7 +1222,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         end
     else
         if not redis:get("KLISH:ID") then
-        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n• 𝚄𝚂𝙴𝚁 𖥳 '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳 '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳 '..msg.TheRank..' .\n• 𝙸𝙳 𖥳 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n 𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸D ✯  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1249,7 +1249,7 @@ else
         Text = Text:gsub('User_Points',nko)
         sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
         else
-        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n• 𝚄𝚂𝙴𝚁 𖥳 '..UserNameID..' .\n• 𝙼𝚂𝙶 𖥳 '..msgs..' .\n• 𝚂𝚃𝙰𝚃𝙴 𖥳 '..msg.TheRank..' .\n• 𝙸𝙳 𖥳 '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n 𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸𝚍 ✯ '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
         end
 end
 
