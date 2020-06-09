@@ -814,7 +814,7 @@ return "- لا يوجد رابط اكتب انشاء رابط لإنشاء را�
 end
 local GroupName = redis:get(max..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(max..'linkGroup'..msg.chat_id_)
-local gu = " 🩸┇*رابط المجموعه* \n🩸┇"..GroupName.."  \n "..GroupLink.." "
+local gu = " 🔖│رابـط الـمـجـمـوعه  \n🌿│ "..GroupName.."  \n "..GroupLink.." "
 return sendMsgg(msg.chat_id_,msg.id_,gu)
 end
   
@@ -1207,7 +1207,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         }
         ssssys = ali[math.random(#ali)]
         if not redis:get("KLISH:ID") then
-        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' 𝚄𝚜𝚎𝚛 ✯   '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯   '..msgs..' .\n 𝚂𝚝𝚊 ✯   '..msg.TheRank..' .\n 𝙸D ✯   '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳  @SourceRang .',dl_cb,nil)
+        sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,'  𝚄𝚜𝚎𝚛 ✯   '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯   '..msgs..' .\n 𝚂𝚝𝚊 ✯   '..msg.TheRank..' .\n 𝙸D ✯   '..msg.sender_user_id_..' .\n   @SourceRang .',dl_cb,nil)
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1222,7 +1222,7 @@ if redis:get(max.."getidstatus"..msg.chat_id_) == "Photo" then
         end
     else
         if not redis:get("KLISH:ID") then
-        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n 𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸D ✯  '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n  𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸D ✯  '..msg.sender_user_id_..' .\n    @SourceRang .')
         else
         Text = redis:get("KLISH:ID")
         Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1249,7 +1249,7 @@ else
         Text = Text:gsub('User_Points',nko)
         sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
         else
-        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n 𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸𝚍 ✯ '..msg.sender_user_id_..' .\n• 𝗖𝗵𝗮 𖥳 @SourceRang .')
+        sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n  𝚄𝚜𝚎𝚛 ✯  '..UserNameID..' .\n 𝙼𝚜𝚐𝚎 ✯  '..msgs..' .\n 𝚂𝚝𝚊 ✯  '..msg.TheRank..' .\n 𝙸𝚍 ✯ '..msg.sender_user_id_..' .\n @SourceRang .')
         end
 end
 
@@ -1685,6 +1685,10 @@ if Photo_Weloame then
 sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[-اهلا انابوت اسـمـي ]]..redis:get(max..':NameBot:')..[[ ✓
 -اختصـاصـي حمـاية المـجمـوعات
 -مـن آلتفنيش والتوجيه‌‏ والتكرار وغيره...
+  ً-لتفعيل البوت اتبع مايلي .
+  ١- اضف البوت الى المجموعه .
+  ٢- ارفع البوت مشرف في المجموعه .
+  ٣- وارسل تفعيل وسيتم تفعيل البوت ورفع مشرفي المجموعه تلقائياً 
 
 -مـعـرف الـمـطـور  » ]]..SUDO_USER:gsub([[\_]],'_')..[[  
 ]])
@@ -2442,12 +2446,12 @@ end
 
 if MsgText[1] == "اطردني" or MsgText[1] == "احظرني" then
 if not redis:get(max..'lave_me'..msg.chat_id_) then
-if msg.Admin then return "↪تحبون المذله .  \n" end
+if msg.Admin then return "تحبون المذله .  \n" end
 kick_user(msg.sender_user_id_,msg.chat_id_,function(arg,data)
 if data.ID == "Ok" then
 StatusLeft(msg.chat_id_,msg.sender_user_id_)
 send_msg(msg.sender_user_id_,"-اهلا يا ذليل الزبده حظرتك من المجموعه على طلبك \n-اذا كان هذا بالخطأ او اردت الرجوع للمجموعه \n\n-فهذا رابط المجموعه \n │"..Flter_Markdown(redis:get(max..'group:name'..msg.chat_id_)).." :\n\n["..redis:get(max..'linkGroup'..msg.chat_id_).."]\n")
-sendMsg(msg.chat_id_,msg.id_,"- لقد تم طردك بنجاح , ارسلت لك رابط المجموعه في الخاص اذا وصلت لك تستطيع الرجوع متى شئت و يرحم امك لا تسوي اخر حبه")
+sendMsg(msg.chat_id_,msg.id_,"- لقد تم طردك بنجاح , ارسلت لك رابط المجموعه في الخاص اذا وصلت لك تستطيع الرجوع متى شئت \n يرحم امك لا تسوي اخر حبه")
 else
 sendMsg(msg.chat_id_,msg.id_,"- لا استطيع طردك لانك مشرف في المجموعه  ")
 end
@@ -2734,15 +2738,27 @@ if redis:get(max..'lock_service') then
 text = [[-اهلاً انا بـوت اسـمي []]..redis:get(max..':NameBot:')..[[] 
 -لحماية المجموعات من البوتات
 والتوجيه‌‏ والتكرار وغيره...
-ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  ً-لتفعيل البوت اتبع مايلي .
+  ١- اضف البوت الى المجموعه .
+  ٢- ارفع البوت مشرف في المجموعه .
+  ٣- وارسل تفعيل وسيتم تفعيل البوت ورفع مشرفي المجموعه تلقائياً .
+~~~~~~~~~~~~~~~
  ⚖│مـعـرف الـمـطـــور ↫ ]]..SUDO_USER..[[
+ 
+ ⚖│قـنـاة الـسـورس ↫ @SourceRang
 ]]
 else
 text = [[- اهلاً انابـوت اسمي []]..redis:get(max..':NameBot:')..[[] 
 -لحماية المجموعات من البوتات
 والتوجيه‌‏ والتكرار وغيره...
-ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  ً-لتفعيل البوت اتبع مايلي .
+  ١- اضف البوت الى المجموعه .
+  ٢- ارفع البوت مشرف في المجموعه .
+  ٣- وارسل تفعيل وسيتم تفعيل البوت ورفع مشرفي المجموعه تلقائياً .
+~~~~~~~~~~~~~~~
  ⚖│مـعـرف الـمـطـــور ↫ ]]..SUDO_USER..[[
+ 
+ ⚖│قـنـاة الـسـورس ↫ @SourceRang
 ]]
 end
 xsudouser = SUDO_USER:gsub('@','')
@@ -3920,6 +3936,7 @@ local su = {
   "اهيم بك .",
   "اهواك.",
   "ما احبك .",
+
   "اعشقك .",
   "اتنفسك .",
   "اموت فيك  .",
@@ -3996,6 +4013,7 @@ elseif Text== "تف" then return sendMsg(msg.chat_id_,msg.id_,"وجعع .")
 elseif Text== "مطور السورس" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
 elseif Text== "صانع بوت" then return sendMsg(msg.chat_id_,msg.id_,"[Mohammed .](t.me/XIIIIIIIl")
 elseif Text== "صاحب سورس" then return sendMsg(msg.chat_id_,msg.id_,"[رمـسيـس .](t.me/SPllS")
+elseif Text== "شسمك"  then return sendMsg(msg.chat_id_,msg.id_," ["..Bot_Name.."] ")
 elseif Text== "احبنك" then return sendMsg(msg.chat_id_,msg.id_,"اعشقنك .")
 elseif Text== "اعشقك"  then return sendMsg(msg.chat_id_,msg.id_,"اموت فيك .")
 elseif Text== "وينك"  then return sendMsg(msg.chat_id_,msg.id_,"بقلبك .")
