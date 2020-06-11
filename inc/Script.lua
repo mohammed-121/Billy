@@ -2464,9 +2464,9 @@ end
 
 if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
 return [[
-• ↵ مطور السورس : [رمـسـيـس](t.me/SPSSI)
-• ↵ قناة السورس :[SourceRang](t.me/SourceRang)
- ☬
+●▬▬▬▬๑۩۩๑▬▬▬▬▬●
+● CH : @SourceRang
+●▬▬▬▬๑۩۩๑▬▬▬▬▬●
 ]]
 end
 
@@ -4015,6 +4015,7 @@ elseif Text== "صانع بوت" then return sendMsg(msg.chat_id_,msg.id_,"[Moham
 elseif Text== "صاحب سورس" then return sendMsg(msg.chat_id_,msg.id_,"[رمـسيـس .](t.me/SPllS")
 elseif Text== "شسمك"  then return sendMsg(msg.chat_id_,msg.id_," ["..Bot_Name.."] ")
 elseif Text== "احبنك" then return sendMsg(msg.chat_id_,msg.id_,"اعشقنك .")
+elseif Text== "كشف" then return sendMsg(msg.chat_id_,msg.id_,"تم تغير الامر الى (الرتبه) .")
 elseif Text== "اعشقك"  then return sendMsg(msg.chat_id_,msg.id_,"اموت فيك .")
 elseif Text== "وينك"  then return sendMsg(msg.chat_id_,msg.id_,"بقلبك .")
 elseif Text== "غني"  then return sendMsg(msg.chat_id_,msg.id_,"شوف لك سورس عراقي .")
