@@ -814,7 +814,7 @@ return "- لا يوجد رابط اكتب انشاء رابط لإنشاء را�
 end
 local GroupName = redis:get(max..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(max..'linkGroup'..msg.chat_id_)
-local gu = " 🔖│رابـط الـمـجـمـوعه  \n🌿│ "..GroupName.."  \n "..GroupLink.." "
+local gu = " ["..GroupName.."]("..GroupLink..") "
 return sendMsgg(msg.chat_id_,msg.id_,gu)
 end
   
@@ -2464,9 +2464,9 @@ end
 
 if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
 return [[
-●▬▬▬▬๑۩۩๑▬▬▬▬▬●
-● CH : @SourceRang
-●▬▬▬▬๑۩۩๑▬▬▬▬▬●
+RS©
+• ↵ مطور السورس : [رمسيس](t.me/SPSSI)
+• ↵ قناة السورس :[SourceRang](t.me/SourceRang)
 ]]
 end
 
